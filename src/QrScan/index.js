@@ -15,7 +15,7 @@ function QrScan() {
   };
 
   if (error) {
-    return <div>Sorry... somenthing went wrong {error} </div>;
+    return <div>Sorry... somenthing went wrong {JSON.stringify(error)} </div>;
   }
 
   return (
