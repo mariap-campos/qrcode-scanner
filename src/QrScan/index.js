@@ -37,7 +37,7 @@ function QrScan() {
 
         <QrReader
           delay={300}
-          facingMode={facingMode}
+          constraints={{ facingMode: "environment" }}
           onError={(err) => {
             setError(err);
             console.error(err);
