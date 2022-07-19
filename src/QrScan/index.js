@@ -5,7 +5,7 @@ import QrReader from "modern-react-qr-reader";
 import { Link } from "react-router-dom";
 
 function QrScan() {
-  const [data, setData] = useState("No result");
+  const [data, setData] = useState({ text: "Resultados:" });
   const [scanner, setScanner] = useState(true);
   const [error, setError] = useState();
 
@@ -43,8 +43,9 @@ function QrScan() {
           }}
           onScan={(data) => {
             if (data) {
+              console.log(data);
               setData(data);
-              setScanner(false);
+              //   setScanner(false);
             }
           }}
           style={previewStyle}
