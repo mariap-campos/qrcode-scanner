@@ -15,10 +15,12 @@ function QrScan() {
   return (
     <div className="qrcode">
       <QrReader
-        delay={100}
+        // delay={100}
+        // legacyMode
+        facingMode="rear"
         style={previewStyle}
         onError={(err) => console.error(err)}
-        onScan={(data) => setData(data)}
+        onScan={(data) => console.log(data)}
       />
       <p>{data}</p>
       <Link to="/">Voltar</Link>
