@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "../src/assets/zelogo.png";
 import "./App.css";
 
 import { Link } from "react-router-dom";
@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>POC para qrCode scan em webview</p>
+        <img src={logo} style={{}} className="App-logo" alt="logo" />
+        <p>Aqui você pode scannear seu QrCode na tampinha e acumular pontos!</p>
         <Link to="/qrcode">Escaneie um QrCode!</Link>
       </header>
     </div>

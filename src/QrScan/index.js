@@ -1,13 +1,12 @@
 import { useState } from "react";
 import "../App.css";
-// import QrReader from "react-qr-scanner";
+import logo from "../../src/assets/zelogo.png";
+
 import QrReader from "modern-react-qr-reader";
 import { Link } from "react-router-dom";
 
 function QrScan() {
   const [data, setData] = useState("");
-  const [facingMode, setFacingMode] = useState("environment");
-  const [scanner, setScanner] = useState(true);
   const [error, setError] = useState();
 
   const previewStyle = {
@@ -20,50 +19,33 @@ function QrScan() {
 
   return (
     <div className="qrcode">
-      {scanner && (
-        // <QrReader
-        //   delay={100}
-        //   // legacyMode
-        //   facingMode="rear"
-        //   style={previewStyle}
-        //   onError={(err) => {console.error(err)}}
-        //   onScan={(data) => {
-        //     if (data) {
-        //       setData(data);
-        //       setScanner(false);
-        //     }
-        //   }}
-        // />
+      <img
+        src={logo}
+        style={{ marginBottom: 40 }}
+        className="App-logo"
+        alt="logo"
+      />
 
-        <QrReader
-          delay={300}
-          constraints={{ facingMode: { exact: "environment" } }}
-          onError={(err) => {
-            setError(err);
-            console.error("error", err);
-          }}
-          onScan={(data) => {
-            if (data) {
-              console.log(data);
-              setData(data);
-              // setScanner(false);
-            }
-          }}
-          style={previewStyle}
-        />
-      )}
-      <p>Código: {data}</p>
-      <button
-        onClick={() => {
-          if (facingMode === "environment") {
-            setFacingMode("user");
-          } else {
-            setFacingMode("environment");
+      <QrReader
+        delay={300}
+        constraints={{ facingMode: { exact: "user" } }}
+        onError={(err) => {
+          setError(err);
+          console.error("error", err);
+        }}
+        onScan={(data) => {
+          if (data) {
+            console.log(data);
+            setData(data);
           }
         }}
-      >
-        Rotacionar: {facingMode}{" "}
-      </button>
+        style={previewStyle}
+      />
+
+      <p>
+        Código: <strong>{data}</strong>
+      </p>
+
       <Link to="/">Voltar</Link>
     </div>
   );
