@@ -58,7 +58,7 @@ function QrScan() {
           if (facingMode === "environment") {
             setFacingMode("user");
           } else {
-            setFacingMode("sdsds");
+            setFacingMode("environment");
           }
         }}
       >
