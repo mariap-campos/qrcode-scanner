@@ -20,6 +20,20 @@ function QrScan() {
   return (
     <div className="qrcode">
       {scanner && (
+        // <QrReader
+        //   delay={100}
+        //   // legacyMode
+        //   facingMode="rear"
+        //   style={previewStyle}
+        //   onError={(err) => {console.error(err)}}
+        //   onScan={(data) => {
+        //     if (data) {
+        //       setData(data);
+        //       setScanner(false);
+        //     }
+        //   }}
+        // />
+
         <QrReader
           delay={300}
           facingMode={"environment"}
