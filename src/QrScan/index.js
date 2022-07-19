@@ -15,7 +15,7 @@ function QrScan() {
   };
 
   if (error) {
-    return <div>Sorry... somenthing went wrong</div>;
+    return <div>Sorry... somenthing went wrong {error} </div>;
   }
 
   return (
@@ -58,7 +58,7 @@ function QrScan() {
           if (facingMode === "environment") {
             setFacingMode("user");
           } else {
-            setFacingMode("environment");
+            setFacingMode("sdsds");
           }
         }}
       >
