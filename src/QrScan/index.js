@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 function QrScan() {
   const [data, setData] = useState("");
+  const [facingMode, setFacingMode] = useState("user");
   const [scanner, setScanner] = useState(true);
   const [error, setError] = useState();
 
@@ -36,7 +37,7 @@ function QrScan() {
 
         <QrReader
           delay={300}
-          facingMode={"environment"}
+          facingMode={facingMode}
           onError={(err) => {
             setError(err);
             console.error(err);
@@ -45,13 +46,24 @@ function QrScan() {
             if (data) {
               console.log(data);
               setData(data);
-              //   setScanner(false);
+              // setScanner(false);
             }
           }}
           style={previewStyle}
         />
       )}
       <p>Código: {data}</p>
+      <button
+        onClick={() => {
+          if (facingMode === "environment") {
+            setFacingMode("user");
+          } else {
+            setFacingMode("environment");
+          }
+        }}
+      >
+        Rotacionar: {facingMode}{" "}
+      </button>
       <Link to="/">Voltar</Link>
     </div>
   );
