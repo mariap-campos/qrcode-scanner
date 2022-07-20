@@ -14,7 +14,7 @@ function QrScan() {
   };
 
   if (error) {
-    return <div>Sorry... somenthing went wrong {JSON.stringify(error)} </div>;
+    return <div>Sorry... somenthing went wrong: {error.message}</div>;
   }
 
   return (
@@ -31,7 +31,7 @@ function QrScan() {
         constraints={{ facingMode: { exact: "environment" } }}
         onError={(err) => {
           setError(err);
-          console.error("error", err);
+          console.log("error", err);
         }}
         onScan={(data) => {
           if (data) {
