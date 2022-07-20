@@ -5,19 +5,19 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({ video: { facingMode: { exact: "environment" } } })
-      .then(function (stream) {
-        if (stream.getVideoTracks().length > 0) {
-          console.log(stream.getVideoTracks());
-          window.location.reload(true);
-        }
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, [navigator]);
+  // useEffect(() => {
+  //   navigator.mediaDevices
+  //     .getUserMedia({ video: { facingMode: { exact: "environment" } } })
+  //     .then(function (stream) {
+  //       if (stream.getVideoTracks().length > 0) {
+  //         console.log(stream.getVideoTracks());
+  //         window.location.reload(true);
+  //       }
+  //     })
+  //     .catch(function (error) {
+  //       console.error(error);
+  //     });
+  // }, [navigator]);
   return (
     <div className="App">
       <header className="App-header">
