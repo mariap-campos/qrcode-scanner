@@ -4,6 +4,13 @@ import "./App.css";
 import { Link } from "react-router-dom";
 
 function App() {
+  navigator.getUserMedia(
+    { video: true },
+    function (stream) {
+      stream.getTracks().forEach((x) => x.stop());
+    },
+    (err) => console.log(err)
+  );
   return (
     <div className="App">
       <header className="App-header">
